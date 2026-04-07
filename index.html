@@ -9,8 +9,53 @@
 
 </html>
         </div>
-        <div id="vis"></div>  <!--  Will hold our visualization (black hat) -->
-        <div id="vis2"></div> <!--  Will hold our visualization (white hat) -->
+        <!-- WHITE HAT VIZ -->
+        <section>
+            <h2>White Hat Visualization</h2>
+            <tableau-viz
+                id="whiteHatViz"
+                src="https://public.tableau.com/views/whitehatfinal/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                width="100%"
+                height="700"
+                toolbar="bottom"
+                hide-tabs>
+            </tableau-viz>
+        </section>
+        <p>
+            This visualization shows complaint outcomes across all groups using the 
+            same baseline for comparison. Each group’s outcomes are broken down as 
+            a percentage of that group’s total complaints, so you can fairly compare 
+            how outcomes are distributed. The main takeaway is that most complaints 
+            are unsubstantiated, and this pattern looks similar across different 
+            groups when you look at the full picture.
+        </p>
+
+        <!-- BLACK HAT VIZ -->
+        <section>
+            <h2>Black Hat Visualization</h2>
+            <tableau-viz
+                id="blackHatViz"
+                src="https://public.tableau.com/views/blackhatfinal/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                width="100%"
+                height="700"
+                toolbar="bottom"
+                hide-tabs>
+            </tableau-viz>
+        </section>
+        <p>
+            This visualization is misleading because it uses percentages of the overall dataset 
+            instead of percentages within each group. In other words, it shows how much each 
+            group contributes to all unsubstantiated complaints, rather than what percentage 
+            of that group’s complaints are unsubstantiated.
+
+            For example, if there are more total complaints from one group, that group will 
+            naturally make up a larger share of all unsubstantiated cases, even if their actual 
+            rate is similar to others. This makes it seem like that group has worse outcomes, 
+            when it’s really just a result of having more complaints overall. The main takeaway 
+            is that changing what you divide by—each group’s total vs the overall total—can 
+            completely change how the data looks.
+        </p>
+
     </div>
     
     <!-- Load D3.js -->
@@ -19,4 +64,5 @@
     <script src="js/script2.js"></script>
     <script src="https://d3js.org/d3.v7.js"></script>
     <script src="https://unpkg.com/d3-simple-slider"></script>
+    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 
