@@ -8,6 +8,18 @@
 </head>
 
 </html>
+        <section>
+            <h2>
+                Introduction
+            </h2>
+            <p>
+                This project uses a dataset of civilian complaints filed against officers in the New York Police Department, originally compiled by ProPublica. The data includes fields such as Board Disposition (the outcome of each complaint), Complainant Race, and FADO Type (the type of allegation, such as force or abuse of authority). These features make it possible to examine how complaints are resolved and whether outcomes differ across groups.
+            </p>
+            <p>
+                The visualizations in this project focus specifically on complaint outcomes by complainant race, using stacked bar charts to compare how categories like unsubstantiated, substantiated, and exonerated are distributed. Both visualizations use percentages, but differ in how those percentages are calculated: the white hat version shows percentages within each group, while the black hat version shows each group’s share of the overall dataset.
+            </p>
+        </section>
+
         </div>
         <!-- WHITE HAT VIZ -->
         <section>
@@ -16,19 +28,30 @@
                 id="whiteHatViz"
                 src="https://public.tableau.com/views/whitehatfinal/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
                 width="100%"
-                height="700"
+                height="800"
                 toolbar="bottom"
                 hide-tabs>
             </tableau-viz>
         </section>
+        <div class="viz-caption white-caption">
+            This chart shows how complaint outcomes are distributed within each complainant ethnicity, allowing for fair comparison across groups. It highlights that unsubstantiated complaints are the most common outcome for all groups, with relatively similar patterns overall.
+        </div>
+        <h4>
+            Write Up
+        </h4>
         <p>
-            This visualization shows complaint outcomes across all groups using the 
-            same baseline for comparison. Each group’s outcomes are broken down as 
-            a percentage of that group’s total complaints, so you can fairly compare 
-            how outcomes are distributed. The main takeaway is that most complaints 
-            are unsubstantiated, and this pattern looks similar across different 
-            groups when you look at the full picture.
+            This visualization is designed to make comparisons as fair and straightforward as possible by showing complaint outcomes as percentages within each complainant ethnicity. Each bar adds up to 100%, which means you’re always comparing how outcomes are distributed within a group rather than comparing raw totals across groups. This is important because the number of complaints varies by group, so using a consistent denominator prevents larger groups from appearing more significant simply due to having more data.
         </p>
+        <p>
+            The choice of a 100% stacked bar chart helps keep the full context visible. By showing all outcome categories together, the visualization makes it easy to see how unsubstantiated, substantiated, and other outcomes relate to each other within each group. The consistent color scheme and ordering also make the chart easy to read without drawing unnecessary attention to any single category.        </p>
+
+        <p>
+            One of the most important features is the detailed tooltip, which clearly explains the numbers behind each bar. When hovering, the tooltip shows not just the percentage, but also the exact count and the total number of complaints for that group, making the denominator explicit. This added transparency helps prevent misinterpretation, since viewers can see exactly what each percentage is based on rather than guessing from the visual alone.
+        </p>
+        <p>
+            The main takeaway is that unsubstantiated complaints are the most common outcome across all groups, but the differences between groups are relatively small.
+        </p>
+
 
         <!-- BLACK HAT VIZ -->
         <section>
@@ -42,22 +65,40 @@
                 hide-tabs>
             </tableau-viz>
         </section>
-        <p>
-            This visualization is misleading because it uses percentages of the overall dataset 
-            instead of percentages within each group. In other words, it shows how much each 
-            group contributes to all unsubstantiated complaints, rather than what percentage 
-            of that group’s complaints are unsubstantiated.
 
-            For example, if there are more total complaints from one group, that group will 
-            naturally make up a larger share of all unsubstantiated cases, even if their actual 
-            rate is similar to others. This makes it seem like that group has worse outcomes, 
-            when it’s really just a result of having more complaints overall. The main takeaway 
-            is that changing what you divide by—each group’s total vs the overall total—can 
-            completely change how the data looks.
+        <div class="viz-caption black-caption">
+            This chart shows how different complainant groups contribute to overall complaint outcomes. It suggests that some groups make up a larger share of certain outcomes, which may be interpreted as differences in how complaints are resolved.
+        </div>
+        <h4>
+            Write Up
+        </h4>
+        <p>
+            This visualization uses the same dataset but changes how the data is framed in a way that makes certain groups appear more extreme. Instead of calculating percentages within each ethnicity, it shows each group’s share of the overall dataset. This means the denominator is no longer “total complaints for that group,” but rather “total complaints across all groups.” As a result, groups with more complaints naturally take up more space in the chart, regardless of whether their outcome patterns are actually different.
+        </p>
+        <p>
+            Because of this, the bar for Black complainants appears much larger, which can easily be interpreted as worse outcomes rather than simply more total complaints. This is a subtle but important shift where the visualization is no longer comparing distributions, but contributions to the total. Without explicitly stating this, it becomes easy for a viewer to assume that the differences reflect disparities in outcomes rather than differences in volume.
+        </p>
+        <p>
+            The design choices reinforce this effect. Unlike the white hat version, the bars do not sum to 100%, so there’s no clear visual cue that the denominator has changed. The chart also introduces FADO type as an additional color encoding, which adds visual complexity and pulls attention away from the underlying issue with the percentages. Instead of focusing on how outcomes compare within each group, the viewer is distracted by multiple overlapping categories.
+        </p>
+        <p>
+            Additionally, the tooltip is much less informative. It focuses primarily on percentages without clearly showing the total number of complaints or explaining what the percentage is based on. The features were kept as their default values so users would have difficulty understanding what the specific numbers meant.
+        </p>
+        <p>
+            The main takeaway is that the visualization makes it appear as though certain groups experience worse outcomes, when in reality this impression is largely driven by how the data is calculated and presented.
         </p>
 
     </div>
-    
+    <h3>
+        Overview of Development Process
+    </h3>
+    <p>This project took around 8–10 hours total, including exploring the dataset, building the visualizations, and putting everything together on the final webpage. Both members experimented with the data and contributed ideas for the final result. Emily made the foundational visualizations for black-hat and white-hat visualizations. Both members worked on refining and formatting the visualizations to make the differences between the 2 more noticeable.
+
+    The final step was setting up the GitHub page and writing the explanations to clearly describe the design choices and what they show. Emma created the demo video.</p>
+    <h3>
+        Sources
+    </h3>
+    <a href = "https://www.propublica.org/datastore/dataset/civilian-complaints-against-new-york-city-police-officers"> ProPublica's Civilian Complaints Against NYPD Officers</a>
     <!-- Load D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="js/script.js"></script>

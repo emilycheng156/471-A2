@@ -47,16 +47,6 @@ p{
     pointer-events: none; /* Prevent tooltip from interfering with mouse events */
     font-size: 12px;
 }
-.annotation-box {
-    max-width: 800px;
-    margin: 12px auto 24px auto;
-    padding: 10px 14px;
-    background: #f7f7f7;
-    border-left: 4px solid #666;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #222;
-}
 
 .controls {
     display: flex;
@@ -75,3 +65,23 @@ p{
     display: block;
 }
 
+.viz-caption {
+  margin: 16px 0 24px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-left: 6px solid;
+}
+
+.white-caption {
+  background-color: #f4f8f4;
+  border-left-color: #5f8f6b;
+  color: #1f2a1f;
+}
+
+.black-caption {
+  background-color: #f8f5f2;
+  border-left-color: #8a5a44;
+  color: #2a2220;
+}
